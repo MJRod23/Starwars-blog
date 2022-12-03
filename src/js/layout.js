@@ -16,13 +16,14 @@ const Layout = () => {
 	// const basename = process.env.BASENAME || "";
 	// basename={basename}
 
+
 	return (
 		<div>
 			<BrowserRouter >
 					
 					<Routes>
 						<Route path="/" element={<Home />} />
-						<Route path="/character/:character" element={<Character />} />
+						<Route path="/character/:id" element={<Character />} />
 						<Route path="/planet/:planet" element={<Planet />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
