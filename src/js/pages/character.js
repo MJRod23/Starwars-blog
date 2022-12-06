@@ -3,20 +3,21 @@ import { useParams } from "react-router";
 import { get_characters, get_character } from "../swapi";
 
 export default function () {
-  let [Info, setInfo] = useState();
+  let [info, setInfo] = useState();
+  let {id} = useParams();
 
-  let { id } = useParams();
-  useEffect( () => {
-    async function settingInfo(){
-
-    let character = await get_character(id)
-    console.log(character)
+  useEffect(()=> {
+    async function set() {
+      let characterInfo = await get_character(id)
+      setInfo(characterInfo)
+      console.log(characterInfo)
     }
-    settingInfo()
-  }, []);
+    set()
 
-  useState();
-  console.log(id);
+  },[])
+return <h1>{info?.properties?.name} </h1>
 
-  return <h1> Character </h1>;
 }
+
+
+//Optional chaining is using "?." instead of "." to try to access something like "properties" above that sometimes wont exist
