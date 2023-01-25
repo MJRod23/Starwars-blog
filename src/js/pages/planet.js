@@ -1,4 +1,7 @@
 import React from "react";
+import { useParams } from "react-router-dom";
+import { getPlanet, getAllPlanets } from "../swapi";
+
 
 export default function (){
     let [info, setInfo] = useState();

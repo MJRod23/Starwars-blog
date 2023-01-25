@@ -8,24 +8,28 @@ async function get_planet() {
   return data.result;
 }
 
-async function get_planets() {
-  const res = await fetch("https://www.swapi.tech/api/planets/");
-  let data = await res.json();
+async function getAllPlanets() {
+  const response = await fetch("https://www.swapi.tech/api/planets/");
+  let data = await response.json();
+  // console.log(data)
+  // console.log(data.results)
   return data.results;
 }
 
-async function get_characters() {
-  const res = await fetch("https://www.swapi.tech/api/people/");
-  let data = await res.json();
+async function getCharacter(id) {
+  const response = await fetch("https://www.swapi.tech/api/people/" + id);
+  let data = await response.json();
+  // console.log(data)
   console.log(data);
-
-  return data.results;
-}
-
-async function get_character(id) {
-  const res = await fetch("https://www.swapi.tech/api/people/" + id);
-  let data = await res.json();
   return data.result;
 }
 
-export { get_planet, get_planets, get_character, get_characters };
+async function getAllCharacters() {
+  const response = await fetch("https://www.swapi.tech/api/people/");
+  let data = await response.json();
+  // console.log(data)
+  console.log(data.results);
+  return data.results;
+}
+
+export { getPlanet, getAllPlanets, getAllCharacters, getCharacter };

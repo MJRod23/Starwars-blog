@@ -3,6 +3,12 @@ import { useParams } from "react-router";
 import "../../styles/demo.css";
 import { get_character, get_characters, get_planets} from "../swapi";
 import { Link } from "react-router-dom";
+import {
+  getPlanet,
+  getAllPlanets,
+  getCharacter,
+  getAllCharacters,
+} from "../swapi";
 
 export default function () {
   let [characters, setCharacters] = useState();
@@ -11,9 +17,9 @@ export default function () {
     async function set() {
       let charactersInfo = await get_characters();
       setCharacters(charactersInfo);
-      console.log(charactersInfo);
+      //console.log(charactersInfo);
     }
-    set();
+    settingInfo();
   }, []);
   return (
     <div>
